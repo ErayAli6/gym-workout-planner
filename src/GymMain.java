@@ -2,10 +2,10 @@ import decorator.CardioDecorator;
 import decorator.FlexibilityDecorator;
 import decorator.StrengthTrainingDecorator;
 import observer.Trainer;
+import observer.WorkoutProgramManager;
 import singleton.Gym;
 import strategy.BeginnerWorkoutProgram;
 import strategy.WorkoutProgram;
-import strategy.WorkoutProgramManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +16,8 @@ public class GymMain {
         System.out.println("Gym application started.");
 
         Gym gym = Gym.getInstance();
-
-        WorkoutProgramManager workoutProgramManager = gym.getWorkoutProgramManager();
+        WorkoutProgramManager workoutProgramManager = new WorkoutProgramManager("Basic Program Manager");
+        gym.addWorkoutProgramManager(workoutProgramManager);
 
         WorkoutProgram workoutProgram =
                 new BeginnerWorkoutProgram("Basic Program", "A simple workout", 30,
@@ -37,8 +37,8 @@ public class GymMain {
         System.out.println(flexibilityWorkout.getName() + " cost: " + flexibilityWorkout.getCost());
 
         Trainer trainer = new Trainer("Gosho");
-
-        flexibilityWorkout.addObserver(trainer);
+        trainer.setWorkoutProgramManager(workoutProgramManager);
+        workoutProgramManager.subscribe(trainer);
 
         workoutProgramManager.setWorkoutProgram(flexibilityWorkout);
 
