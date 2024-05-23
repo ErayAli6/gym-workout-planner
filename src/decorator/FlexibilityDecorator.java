@@ -9,10 +9,10 @@ public class FlexibilityDecorator extends WorkoutProgramDecorator {
     public FlexibilityDecorator(WorkoutProgram workoutProgram) {
         super(workoutProgram);
         System.out.println("Flexibility Decorator created");
-        addFlexibility();
     }
 
-    private void addFlexibility() {
+    @Override
+    public void addExercise() {
         workoutProgram.addExercise("Flexibility Training");
     }
 

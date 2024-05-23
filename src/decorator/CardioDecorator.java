@@ -9,10 +9,10 @@ public class CardioDecorator extends WorkoutProgramDecorator {
     public CardioDecorator(WorkoutProgram workoutProgram) {
         super(workoutProgram);
         System.out.println("Cardio Decorator created");
-        addCardio();
     }
 
-    private void addCardio() {
+    @Override
+    public void addExercise() {
         workoutProgram.addExercise("Cardio");
     }
 

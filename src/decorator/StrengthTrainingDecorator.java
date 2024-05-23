@@ -9,10 +9,10 @@ public class StrengthTrainingDecorator extends WorkoutProgramDecorator {
     public StrengthTrainingDecorator(WorkoutProgram workoutProgram) {
         super(workoutProgram);
         System.out.println("Strength Training Decorator created");
-        addStrength();
     }
 
-    private void addStrength() {
+    @Override
+    public void addExercise() {
         workoutProgram.addExercise("Strength Training");
     }
 
