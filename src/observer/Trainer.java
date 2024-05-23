@@ -1,10 +1,11 @@
 package observer;
 
-import strategy.WorkoutProgram;
-
 public class Trainer implements TrainerObserver {
 
-    private String name;
+
+    private Observable workoutProgram;
+
+    private final String name;
 
     public Trainer(String name) {
         this.name = name;
@@ -12,16 +13,12 @@ public class Trainer implements TrainerObserver {
     }
 
     @Override
-    public void update(WorkoutProgram workoutProgram) {
-        System.out.println("Trainer " + name + " received a new workout program: " + workoutProgram.getExercises());
+    public void update() {
+        System.out.println("Trainer " + name + " received a new workout program: " + workoutProgram.getUpdate());
     }
 
     @Override
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setWorkoutProgramManager(Observable workoutProgramManager) {
+        this.workoutProgram = workoutProgramManager;
     }
 }

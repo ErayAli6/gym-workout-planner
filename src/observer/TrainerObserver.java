@@ -1,10 +1,8 @@
 package observer;
 
-import strategy.WorkoutProgram;
-
 public interface TrainerObserver {
 
-    void update(WorkoutProgram workoutProgram);
+    void update();
 
-    String getName();
+    void setWorkoutProgramManager(Observable workoutProgram);
 }
