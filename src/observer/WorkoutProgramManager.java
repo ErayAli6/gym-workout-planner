@@ -5,7 +5,7 @@ import strategy.WorkoutProgram;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WorkoutProgramManager implements Observable {
+public class WorkoutProgramManager implements ManagerObservable {
 
     private final String name;
 

@@ -3,7 +3,7 @@ package observer;
 public class Trainer implements TrainerObserver {
 
 
-    private Observable workoutProgram;
+    private ManagerObservable workoutProgram;
 
     private final String name;
 
@@ -18,7 +18,7 @@ public class Trainer implements TrainerObserver {
     }
 
     @Override
-    public void setWorkoutProgramManager(Observable workoutProgramManager) {
+    public void setWorkoutProgramManager(ManagerObservable workoutProgramManager) {
         this.workoutProgram = workoutProgramManager;
     }
 }

@@ -4,5 +4,5 @@ public interface TrainerObserver {
 
     void update();
 
-    void setWorkoutProgramManager(Observable workoutProgram);
+    void setWorkoutProgramManager(ManagerObservable workoutProgram);
 }

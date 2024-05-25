@@ -1,6 +1,6 @@
 package observer;
 
-public interface Observable {
+public interface ManagerObservable {
     void subscribe(TrainerObserver observer);
 
     void unsubscribe(TrainerObserver observer);
