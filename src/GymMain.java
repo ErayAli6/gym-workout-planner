@@ -1,6 +1,7 @@
 import decorator.CardioDecorator;
 import decorator.FlexibilityDecorator;
 import decorator.StrengthTrainingDecorator;
+import decorator.WorkoutProgramDecorator;
 import observer.Trainer;
 import observer.WorkoutProgramManager;
 import singleton.Gym;
@@ -29,9 +30,9 @@ public class GymMain {
 //                        new ArrayList<>(List.of("Keep your back straight", "Do not swing your body")));
         System.out.println(workoutProgram.getName() + " cost: " + workoutProgram.getCost());
 
-        WorkoutProgram cardioWorkout = new CardioDecorator(workoutProgram);
-        System.out.println(cardioWorkout.getName() + " cost: " + cardioWorkout.getCost());
-        WorkoutProgram strengthWorkout = new StrengthTrainingDecorator(cardioWorkout);
+        WorkoutProgramDecorator cardioWorkout = new CardioDecorator(workoutProgram);
+        System.out.println(workoutProgram.getName() + " cost: " + cardioWorkout.getCost());
+        WorkoutProgramDecorator strengthWorkout = new StrengthTrainingDecorator(cardioWorkout);
         System.out.println(strengthWorkout.getName() + " cost: " + strengthWorkout.getCost());
         WorkoutProgram flexibilityWorkout = new FlexibilityDecorator(strengthWorkout);
         System.out.println(flexibilityWorkout.getName() + " cost: " + flexibilityWorkout.getCost());

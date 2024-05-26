@@ -9,25 +9,25 @@ public class WorkoutProgramManager implements ManagerObservable {
 
     private final String name;
 
-    private final List<TrainerObserver> observers;
+    private final List<TrainerObserver> trainers;
 
     private WorkoutProgram workoutProgram;
 
     public WorkoutProgramManager(String name) {
         this.name = name;
-        this.observers = new ArrayList<>();
+        this.trainers = new ArrayList<>();
         System.out.println("Workout program manager created: " + name);
     }
 
     @Override
     public void subscribe(TrainerObserver observer) {
-        observers.add(observer);
+        trainers.add(observer);
         observer.setWorkoutProgramManager(this);
     }
 
     @Override
     public void unsubscribe(TrainerObserver observer) {
-        observers.remove(observer);
+        trainers.remove(observer);
         observer.setWorkoutProgramManager(null);
     }
 
@@ -38,7 +38,7 @@ public class WorkoutProgramManager implements ManagerObservable {
 
     @Override
     public void notifyObservers() {
-        observers.forEach(TrainerObserver::update);
+        trainers.forEach(TrainerObserver::update);
     }
 
     public void setWorkoutProgram(WorkoutProgram workoutProgram) {

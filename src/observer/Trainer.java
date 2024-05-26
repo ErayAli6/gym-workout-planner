@@ -2,7 +2,6 @@ package observer;
 
 public class Trainer implements TrainerObserver {
 
-
     private ManagerObservable workoutProgram;
 
     private final String name;

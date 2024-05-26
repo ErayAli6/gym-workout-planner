@@ -12,12 +12,10 @@ public abstract class WorkoutProgramDecorator extends WorkoutProgram implements 
         addExercise();
     }
 
-    @Override
     public void print() {
         workoutProgram.print();
     }
 
-    @Override
     public double getCost() {
         return workoutProgram.getCost();
     }
